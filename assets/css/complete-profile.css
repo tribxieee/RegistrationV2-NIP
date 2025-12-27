@@ -1,0 +1,224 @@
+:root {
+  --primary-blue: #1862db;
+  --light-blue: #f0f7ff;
+  --text-muted: #8692a6;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Section Home */
+#complete-profile {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Panel Kiri (Visual) */
+.hero-side {
+  background: linear-gradient(rgba(24, 98, 219, 0.88), rgba(24, 98, 219, 0.88)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 123px 96px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-area img {
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.testimonial-area {
+  position: relative;
+  z-index: 2;
+}
+
+.quote-mark {
+  font-size: 3rem;
+  color: #00d4ff;
+  line-height: 1;
+  margin-top: 2rem;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 450px;
+}
+
+/* Panel Kanan (Form) */
+.form-side {
+  background: #fff;
+}
+
+.form-inner {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 85px;
+}
+
+.top-bar {
+  margin-bottom: 24px;
+  padding: 10px 20px;
+}
+
+/* ===== CONTENT WIDTH (KUNCI KECIL) ===== */
+.content-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ===== TYPOGRAPHY ===== */
+.content-wrapper h2 {
+  font-size: 1.4rem;
+  margin-top: -10px;
+  color: #000;
+}
+
+.content-wrapper p {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  color: #8692a6;
+}
+
+hr {
+  opacity: 0.06;
+  margin: 14px 0;
+}
+
+/* ===== FORM ===== */
+.field {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #8692a6;
+}
+
+.form-control {
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  border-color: #1565d8;
+  box-shadow: 0 0 0 0.15rem rgba(21, 101, 216, 0.12);
+}
+
+.form-control.is-active {
+  border-color: #1565d8;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.country-code {
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: #1565d8;
+  border: none;
+  padding: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: #0f4fc1; /* sedikit lebih gelap */
+  box-shadow: 0 6px 16px rgba(21, 101, 216, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(21, 101, 216, 0.25);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+  /* Matikan hero */
+  .hero-side {
+    display: none;
+  }
+
+  /* Layout utama */
+  #regist-individu {
+    min-height: auto;
+  }
+
+  /* Form side */
+  .form-side {
+    padding: 24px 20px;
+  }
+
+  /* Jangan center vertikal di mobile */
+  .form-inner {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  /* Top bar */
+  .top-bar {
+    padding: 0;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Konten */
+  .content-wrapper {
+    max-width: 100%;
+  }
+
+  .content-wrapper h2 {
+    font-size: 1.25rem;
+    margin-top: 0;
+  }
+
+  .content-wrapper p {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+
+  hr {
+    margin: 12px 0;
+  }
+
+  /* Field spacing */
+  .field {
+    margin-bottom: 12px;
+  }
+
+  /* Button */
+  .btn-primary {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
+
+  .btn-google {
+    padding: 9px;
+    font-size: 0.85rem;
+  }
+}

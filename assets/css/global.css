@@ -1,0 +1,233 @@
+:root {
+  --primary-blue: #1862db;
+  --light-blue: #f0f7ff;
+  --text-muted: #8692a6;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Section Home */
+#home {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Panel Kiri (Visual) */
+.hero-side {
+  background: linear-gradient(rgba(24, 98, 219, 0.88), rgba(24, 98, 219, 0.88)),
+    url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 123px 96px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo-area img {
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.testimonial-area {
+  position: relative;
+  z-index: 2;
+}
+
+.quote-mark {
+  font-size: 3rem;
+  color: #00d4ff;
+  line-height: 1;
+  margin-top: 2rem;
+}
+
+.testimonial-text {
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 450px;
+}
+
+/* Panel Kanan (Form) */
+.form-side {
+  background-color: #ffffff;
+  padding: 100px 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-nav {
+  text-align: right;
+  margin-bottom: 80px;
+  margin-top: -59px;
+  font-size: 0.95rem;
+}
+
+.top-nav a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.content-wrapper {
+  max-width: 480px;
+  margin-top: -30px;
+  width: 100%;
+}
+
+.content-wrapper h2 {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.content-wrapper .desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+/* Card Selection */
+.account-type-card {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 12px;
+  border: 2px solid #f1f3f7;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.account-type-card:hover {
+  border-color: var(--primary-blue);
+  transform: translateY(-3px);
+  color: inherit;
+}
+
+.account-type-card.active {
+  background-color: var(--light-blue);
+  border-color: var(--primary-blue);
+}
+
+.icon-container {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.active .icon-container {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.business-icon {
+  background-color: #f1f3f7;
+  color: var(--primary-blue);
+}
+
+.card-body-text h6 {
+  margin: 0 0 4px 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.card-body-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.arrow-indicator {
+  margin-left: auto;
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991px) {
+  /* Layout utama */
+  #home {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  /* Hero mati total */
+  .hero-side {
+    display: none;
+  }
+
+  /* Form side */
+  .form-side {
+    padding: 24px 30px;
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  /* Top nav */
+  .top-nav {
+    margin-top: 0;
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  /* Content width */
+  .content-wrapper {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  /* Typography */
+  .content-wrapper h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+
+  .content-wrapper .desc {
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+  }
+
+  /* Account card */
+  .account-type-card {
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+
+  .icon-container {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+    margin-right: 14px;
+  }
+
+  .card-body-text h6 {
+    font-size: 0.95rem;
+  }
+
+  .card-body-text p {
+    font-size: 0.85rem;
+  }
+
+  .arrow-indicator {
+    font-size: 1rem;
+  }
+}

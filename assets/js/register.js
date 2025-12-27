@@ -1,44 +1,48 @@
 // STEP 1 FORM HANDLER
-const step1Form = document.getElementById("step1Form");
-if (step1Form) {
-  const savedData = JSON.parse(localStorage.getItem("registerData"));
+const client = getCurrentClient();
 
-  if (savedData) {
-    document.getElementById("fullname").value = savedData.fullname || "";
-    document.getElementById("email").value = savedData.email || "";
-    document.getElementById("password").value = savedData.password || "";
+if (!client) {
+  console.warn("Client tidak valid");
+} else {
+  const step1Form = document.getElementById("step1Form");
 
-    const termsCheckbox = document.getElementById("checkbox");
-    if (termsCheckbox) {
-      termsCheckbox.checked = true;
+  if (step1Form) {
+    const savedData = JSON.parse(localStorage.getItem("registerData"));
+
+    if (savedData) {
+      fullname.value = savedData.fullname || "";
+      email.value = savedData.email || "";
+      password.value = savedData.password || "";
+      checkbox.checked = true;
     }
+
+    step1Form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      if (!fullname.value || !email.value || !password.value) {
+        alert("Semua field wajib diisi");
+        return;
+      }
+
+      if (!checkbox.checked) {
+        alert("Kamu harus setuju terms & conditions");
+        return;
+      }
+
+      localStorage.setItem(
+        "registerData",
+        JSON.stringify({
+          fullname: fullname.value,
+          email: email.value,
+          password: password.value,
+          clientId: client.id
+        })
+      );
+
+      window.location.href =
+        `complete-profile.html?client=${client.id}`;
+    });
   }
-
-  step1Form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const fullname = document.getElementById("fullname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-    const terms = document.getElementById("checkbox").checked;
-
-    if (!fullname || !email || !password) {
-      alert("Semua field wajib diisi");
-      return;
-    }
-
-    if (!terms) {
-      alert("Kamu harus setuju terms & conditions");
-      return;
-    }
-
-    localStorage.setItem(
-      "registerData",
-      JSON.stringify({ fullname, email, password })
-    );
-
-    window.location.href = "complete-profile.html";
-  });
 }
 
 // PASSWORD TOGGLE VISIBILITY

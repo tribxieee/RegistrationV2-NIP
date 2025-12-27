@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Optional CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <main class="auth-container">
+    <h2 id="loginTitle">Login</h2>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="email@example.com"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          required
+        />
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="auth-footer">
+      Belum punya akun?
+      <a id="registerLink">Register</a>
+    </p>
+  </main>
+
+  <!-- CLIENT SYSTEM -->
+  <script src="data/clients.js"></script>
+  <script src="assets/js/client.js"></script>
+
+  <!-- LOGIN LOGIC -->
+  <script src="assets/js/login.js"></script>
+
+  <script>
+    // inject link register sesuai client
+    const client = getCurrentClient();
+    if (client) {
+      document.getElementById("loginTitle").innerText =
+        `Login to ${client.name}`;
+
+      document.getElementById("registerLink").href =
+        `register.html?client=${client.id}`;
+    }
+  </script>
+
+</body>
+</html>

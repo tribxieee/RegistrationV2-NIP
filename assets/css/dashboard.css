@@ -1,0 +1,66 @@
+body {
+  background-color: #f8f9fa;
+  font-family: "Inter", sans-serif;
+}
+
+/* Container Sidebar */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: white;
+  border-radius: 0 20px 20px 0;
+  padding: 20px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Profile Section */
+.profile-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 20px;
+  color: #1a1a1a;
+}
+
+/* Nav Link Styles */
+.nav-pills .nav-link {
+  color: #6c757d;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 12px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.nav-pills .nav-link i {
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+/* Active State */
+.nav-pills .nav-link.active {
+  background-color: #e8efff;
+  color: #447cfd;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Section Header (Support) */
+.section-title {
+  color: #adb5bd;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 25px 0 15px 20px;
+}

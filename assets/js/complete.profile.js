@@ -36,7 +36,7 @@ if (!client) {
         phone,
         address,
         province,
-        clientId: client.id
+        clientId: client.id,
       };
 
       // simpan user
@@ -49,7 +49,8 @@ if (!client) {
 
       localStorage.removeItem("registerData");
 
-      window.location.href = `dashboard.html?client=${client.id}`;
+      alert("Registration successful. Please login.");
+      window.location.href = `login.html?type=user&client=${client.id}`;
     });
   }
 }

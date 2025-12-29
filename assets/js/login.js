@@ -1,3 +1,12 @@
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type"); // "client" | "user"
+const clientId = params.get("client");
+
+if (!type) {
+  alert("Login type not specified");
+  return;
+}
+
 const client = getCurrentClient();
 if (!client) return;
 

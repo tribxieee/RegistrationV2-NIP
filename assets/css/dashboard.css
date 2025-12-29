@@ -13,7 +13,6 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Profile Section */
 .profile-img {
   width: 35px;
   height: 35px;
@@ -27,7 +26,6 @@ body {
   color: #1a1a1a;
 }
 
-/* Nav Link Styles */
 .nav-pills .nav-link {
   color: #6c757d;
   font-weight: 500;
@@ -44,7 +42,6 @@ body {
   font-size: 1.2rem;
 }
 
-/* Active State */
 .nav-pills .nav-link.active {
   background-color: #e8efff;
   color: #447cfd;
@@ -55,7 +52,6 @@ body {
   color: #333;
 }
 
-/* Section Header (Support) */
 .section-title {
   color: #adb5bd;
   font-size: 0.85rem;
@@ -63,4 +59,50 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 25px 0 15px 20px;
+}
+
+/* head */
+body {
+  display: flex;
+  overflow-x: hidden;
+}
+
+.main-content {
+  background-color: #fcfcfc;
+  min-height: 100vh;
+}
+
+.navbar-header {
+  height: 64px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.filter-card {
+  border-radius: 16px;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.filter-card:hover {
+  background-color: #f8f9fa !important;
+  border-color: #dee2e6;
+}
+
+.filter-card span {
+  font-size: 14px;
+}
+
+.text-secondary {
+  color: #8c8c8c !important;
+}
+
+.search-container input {
+  box-shadow: none;
+  background-color: #f0f0f0 !important;
+  border-radius: 8px;
 }

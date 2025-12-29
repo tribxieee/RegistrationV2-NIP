@@ -41,16 +41,24 @@ if (!client) {
 
       // simpan user
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      users.push(finalData);
-      localStorage.setItem("users", JSON.stringify(users));
 
-      // auto login
-      localStorage.setItem("currentUser", JSON.stringify(finalData));
+      const exists = users.some(
+        (u) => u.email === finalData.email && u.clientId === client.id
+      );
+
+      if (exists) {
+        alert("Email sudah terdaftar");
+        return;
+      }
+
+      users.push(finalData); // ← INI YANG HILANG
+
+      localStorage.setItem("users", JSON.stringify(users));
 
       localStorage.removeItem("registerData");
 
-      alert("Registration successful. Please login.");
-      window.location.href = `login.html?type=user&client=${client.id}`;
+      alert("Registration successful 🎉");
+      window.location.href = `register.html?client=${client.id}`;
     });
   }
 }

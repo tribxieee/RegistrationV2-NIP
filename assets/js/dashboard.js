@@ -1,33 +1,36 @@
+// dashboard.js
+
 // ambil client dari URL
 const client = getCurrentClient();
 if (!client) {
-  window.location.href = "404.html";
+  // kalau URL client invalid, lempar ke login GENERIC
+  window.location.href = "login.html?type=client";
+  return;
 }
 
-// ambil user login
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+// ambil session client login
+const currentClient = JSON.parse(localStorage.getItem("currentClient"));
 
-if (!currentUser) {
-  window.location.href = `login.html?type=user&client=${client.id}`;
+// belum login
+if (!currentClient) {
+  window.location.href = `login.html?type=client&client=${client.id}`;
+  return;
 }
 
 // proteksi cross-client
-if (currentUser.clientId !== client.id) {
-  alert("Unauthorized access");
-  localStorage.removeItem("currentUser");
-  window.location.href = `login.html?type=user&client=${client.id}`;
+if (currentClient.id !== client.id) {
+  localStorage.removeItem("currentClient");
+  window.location.href = `login.html?type=client&client=${client.id}`;
+  return;
 }
 
-// render dashboard
+// ====== RENDER DASHBOARD ======
 document.getElementById("clientName").innerText = client.name;
 document.getElementById("welcomeText").innerText =
-  `Welcome, ${currentUser.fullname}`;
-
-document.getElementById("debug").innerText =
-  JSON.stringify(currentUser, null, 2);
+  `Welcome, ${client.name}`;
 
 // logout
 document.getElementById("logoutBtn").addEventListener("click", () => {
-  localStorage.removeItem("currentUser");
-  window.location.href = `login.html?type=user&client=${client.id}`;
+  localStorage.removeItem("currentClient");
+  window.location.href = `login.html?type=client&client=${client.id}`;
 });

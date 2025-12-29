@@ -1,37 +1,39 @@
-const params = new URLSearchParams(window.location.search);
-const type = params.get("type"); // "client" | "user"
-const clientId = params.get("client");
+(function () {
+  const form = document.getElementById("loginForm");
+  if (!form) return; // guard: bukan halaman login
 
-if (!type) {
-  alert("Login type not specified");
-  return;
-}
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
 
-const client = getCurrentClient();
-if (!client) return;
-
-const form = document.getElementById("loginForm");
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-
-  const found = users.find(
-    u =>
-      u.email === email &&
-      u.password === password &&
-      u.clientId === client.id
-  );
-
-  if (!found) {
-    alert("Email atau password salah");
+  if (type !== "client") {
+    window.location.href = "404.html";
     return;
   }
 
-  localStorage.setItem("currentUser", JSON.stringify(found));
-  window.location.href = `dashboard.html?client=${client.id}`;
-});
+  const client = getCurrentClient();
+  if (!client) {
+    window.location.href = "404.html";
+    return;
+  }
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    const admin = CLIENT_ADMINS[client.id];
+
+    if (!admin || admin.email !== email || admin.password !== password) {
+      alert("Email atau password salah");
+      return;
+    }
+
+    localStorage.setItem(
+      "currentClient",
+      JSON.stringify({ id: client.id })
+    );
+
+    window.location.href = `dashboard.html?client=${client.id}`;
+  });
+})();
